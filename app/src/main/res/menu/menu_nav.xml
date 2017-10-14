@@ -8,18 +8,22 @@
             android:title="@string/menu_nav_home"/>
     </group>
 
-    <item android:title="@string/menu_nav_config">
+    <item android:title="@string/menu_nav_view">
         <menu>
             <item
-                android:id="@+id/money_nav_monthly"
+                android:id="@+id/menu_nav_history"
+                android:icon="@drawable/ic_date_range_white_24dp"
+                android:title="@string/menu_nav_history"/>
+            <item
+                android:id="@+id/menu_nav_monthly"
                 android:icon="@drawable/ic_date_range_white_24dp"
                 android:title="@string/menu_nav_monthly"/>
             <item
-                android:id="@+id/nav_gallery"
+                android:id="@+id/menu_nav_gallery"
                 android:icon="@drawable/ic_today_white_24dp"
                 android:title="@string/menu_nav_daily"/>
             <item
-                android:id="@+id/nav_slideshow"
+                android:id="@+id/nav_calendar"
                 android:icon="@android:drawable/ic_menu_my_calendar"
                 android:title="@string/menu_nav_calendar"/>
         </menu>
@@ -27,15 +31,15 @@
     <item android:title="@string/menu_nav_config">
         <menu>
             <item
-                android:id="@+id/nav_config"
+                android:id="@+id/menu_nav_config"
                 android:icon="@drawable/ic_settings_white_24dp"
                 android:title="@string/menu_nav_config"/>
             <item
-                android:id="@+id/nav_category"
+                android:id="@+id/menu_nav_category"
                 android:icon="@drawable/ic_list_white_24dp"
                 android:title="@string/menu_nav_category"/>
             <item
-                android:id="@+id/nav_quick"
+                android:id="@+id/menu_nav_quick"
                 android:icon="@drawable/ic_flash_on_white_24dp"
                 android:title="@string/menu_nav_quick"/>
         </menu>

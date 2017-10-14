@@ -18,6 +18,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="menu_nav_home">ホーム</string>
+    <string name="menu_nav_view">表示</string>
     <string name="menu_nav_monthly">月サマリー</string>
     <string name="menu_nav_daily">日サマリー</string>
     <string name="menu_nav_calendar">カレンダー</string>

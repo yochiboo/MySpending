@@ -67,6 +67,9 @@ public class SummaryActivity extends AppCompatActivity {
       public boolean onNavigationItemSelected(MenuItem item) {
         // ナビゲーションアイコンクリック時の処理
         switch(item.getItemId()){
+          case R.id.menu_nav_history:
+            onMenuHistory();
+            break;
           default:
             showAddActivity();
             break;
@@ -162,6 +165,11 @@ public class SummaryActivity extends AppCompatActivity {
     }
 
     return super.onOptionsItemSelected(item);
+  }
+
+  private void onMenuHistory(){
+    Date today = new Date();
+    showHistoryActivity(new Timestamp(today.getTime()));
   }
 
   private void showAddActivity(){
