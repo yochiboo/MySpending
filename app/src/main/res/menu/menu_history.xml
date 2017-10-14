@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.example.yochi.myspending.HistoryActivity">
+    <item android:id="@+id/action_today"
+          android:title="@string/action_done"
+          android:icon="@android:drawable/ic_menu_today"
+          app:showAsAction="always"
+        />
+    <item android:id="@+id/action_cal"
+          android:title="@string/action_done"
+          android:icon="@android:drawable/ic_menu_month"
+          app:showAsAction="always"
+        />
+</menu>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_nav_home"
+            android:icon="@drawable/ic_home_white_24dp"
+            android:title="@string/menu_nav_home"/>
+    </group>
+
+    <item android:title="@string/menu_nav_config">
+        <menu>
+            <item
+                android:id="@+id/money_nav_monthly"
+                android:icon="@drawable/ic_date_range_white_24dp"
+                android:title="@string/menu_nav_monthly"/>
+            <item
+                android:id="@+id/nav_gallery"
+                android:icon="@drawable/ic_today_white_24dp"
+                android:title="@string/menu_nav_daily"/>
+            <item
+                android:id="@+id/nav_slideshow"
+                android:icon="@android:drawable/ic_menu_my_calendar"
+                android:title="@string/menu_nav_calendar"/>
+        </menu>
+    </item>
+    <item android:title="@string/menu_nav_config">
+        <menu>
+            <item
+                android:id="@+id/nav_config"
+                android:icon="@drawable/ic_settings_white_24dp"
+                android:title="@string/menu_nav_config"/>
+            <item
+                android:id="@+id/nav_category"
+                android:icon="@drawable/ic_list_white_24dp"
+                android:title="@string/menu_nav_category"/>
+            <item
+                android:id="@+id/nav_quick"
+                android:icon="@drawable/ic_flash_on_white_24dp"
+                android:title="@string/menu_nav_quick"/>
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/ic_favorite_white_24dp"
+        android:title="@string/menu_nav_about"/>
+    </group>
+</menu>

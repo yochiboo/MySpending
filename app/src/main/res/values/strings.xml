@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MySpending</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_done">done</string>
+    <string name="spend_name">支払い</string>
+    <string name="input_amount_name">金額</string>
+    <string name="input_memo_name">メモ</string>
+    <string name="select_category_name">カテゴリ</string>
+    <string name="input_payment_date_name">日付</string>
+    <string name="num_pad">キーボード</string>
+
+    <string name="amount_unit">円</string>
+
+    <string name="dell_button_caption">削除</string>
+    <string name="dell_message">削除しました。</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_nav_home">ホーム</string>
+    <string name="menu_nav_monthly">月サマリー</string>
+    <string name="menu_nav_daily">日サマリー</string>
+    <string name="menu_nav_calendar">カレンダー</string>
+    <string name="menu_nav_history">履歴</string>
+    <string name="menu_nav_config">設定</string>
+    <string name="menu_nav_category">カテゴリ設定</string>
+    <string name="menu_nav_quick">クイック入力設定</string>
+    <string name="menu_nav_about">このアプリについて</string>
+
+    <string name="money_decimal_point">0</string>
+</resources>

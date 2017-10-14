@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.yochi.myspending">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".Summary.SummaryActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name="AddActivity"
+            android:label="@string/spend_name">
+        </activity>
+        <activity
+            android:name=".Spend.SpendActivity"
+            android:label="@string/spend_name">
+        </activity>
+        <activity
+            android:name=".InputAmount.InputAmountActivity"
+            android:label="@string/input_amount_name">
+        </activity>
+        <activity
+            android:name=".InputMemo.InputMemoActivity"
+            android:label="@string/input_memo_name">
+        </activity>
+        <activity
+            android:name=".Category.SelectCategoryActivity"
+            android:label="@string/select_category_name">
+        </activity>
+        <activity
+            android:name=".InputPaymentDate.InputPaymentDateActivity"
+            android:label="@string/input_payment_date_name">
+        </activity>
+        <activity
+            android:name=".History.HistoryActivity"
+            android:label="@string/input_payment_date_name">
+        </activity>
+
+        <service android:name=".InputMethodService.NumPad"
+                 android:label="@string/num_pad"
+                 android:permission="android.permission.BIND_INPUT_METHOD"
+                >
+            <meta-data android:name="android.view.im" android:resource="@xml/method"/>
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
