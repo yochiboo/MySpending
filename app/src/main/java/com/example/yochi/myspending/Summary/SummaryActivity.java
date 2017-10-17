@@ -119,7 +119,7 @@ public class SummaryActivity extends AppCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         SummaryFragmentPagerAdapter pager = (SummaryFragmentPagerAdapter)viewPager.getAdapter();
         Timestamp ts = pager.getSummaries().get(viewPager.getCurrentItem()).getSummaryDate();
-        showHistoryActivity(ts);
+        showHistoryActivity(MyDateUtil.cutTime(ts));
       }
     });
   }

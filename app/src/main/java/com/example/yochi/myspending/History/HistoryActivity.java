@@ -188,7 +188,7 @@ public class HistoryActivity extends AppCompatActivity {
       intent.putExtra("id", id);
     }else{
       intent.putExtra("param", SpendActivity.PARAM_NEW);
-      intent.putExtra("date", SpendActivity.PARAM_NEW);
+      intent.putExtra("date", getPagerCurrentDate().getTime());
     }
     startActivity(intent);
   }

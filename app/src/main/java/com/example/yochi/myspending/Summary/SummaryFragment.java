@@ -104,7 +104,7 @@ public class SummaryFragment extends Fragment {
     // 遷移先のアクティビティを起動させる
     Intent intent = new Intent(getContext(), HistoryActivity.class);
     intent.putExtra("param", 0);
-    intent.putExtra("date", ts.getTime());
+    intent.putExtra("date", MyDateUtil.cutTime(ts).getTime());
     startActivity(intent);
   }
 }

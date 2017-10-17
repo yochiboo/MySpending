@@ -1,6 +1,6 @@
 package com.example.yochi.myspending.Spend;
 
-import android.app.ActionBar;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.yochi.myspending.Category.Category;
+import com.example.yochi.myspending.Dialog.MyConfirmDialogFragment;
 import com.example.yochi.myspending.InputAmount.InputAmountActivity;
 import com.example.yochi.myspending.InputMemo.InputMemoActivity;
 import com.example.yochi.myspending.InputPaymentDate.InputPaymentDateActivity;
@@ -24,7 +25,8 @@ import com.example.yochi.myspending.util.MyDateUtil;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
-public class SpendActivity extends AppCompatActivity {
+public class SpendActivity extends AppCompatActivity
+  implements MyConfirmDialogFragment.NoticeDialogListener{
 
   public static final int PARAM_NEW = 0;
   public static final int PARAM_EDIT = 1;
@@ -85,8 +87,6 @@ public class SpendActivity extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         dellSpend();
-        Snackbar.make(view, "保存しました。", Snackbar.LENGTH_LONG)
-          .setAction("Action", null).show();
         finish();
       }
     });
@@ -97,8 +97,6 @@ public class SpendActivity extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         addSpend();
-        Snackbar.make(view, getResources().getText(R.string.dell_message), Snackbar.LENGTH_LONG)
-          .setAction("Action", null).show();
         finish();
       }
     });
@@ -232,13 +230,37 @@ public class SpendActivity extends AppCompatActivity {
         finish();
         return true;
       case R.id.action_delete:
-        dellSpend();
-        finish();
+        OnConfirmDelteSpend();
         return true;
     }
     return super.onOptionsItemSelected(item);
   }
 
+  // データ削除の確認
+  private void OnConfirmDelteSpend(){
+    MyConfirmDialogFragment dialogFragment = new MyConfirmDialogFragment()
+      .setMessage(getString(R.string.msg_confirm_delete))
+      .setPositive(getString(R.string.msg_confirm_delete_ok))
+      .setNegative(getString(R.string.msg_confirm_delete_cancel));
+    String tag = "confirm";
+    dialogFragment.show(getFragmentManager(), tag);
+  }
+
+  // The dialog fragment receives a reference to this Activity through the
+  // Fragment.onAttach() callback, which it uses to call the following methods
+  // defined by the NoticeDialogFragment.NoticeDialogListener interface
+  @Override
+  public void onDialogPositiveClick(DialogFragment dialog) {
+    // User touched the dialog's positive button
+    dellSpend();
+    finish();
+  }
+
+  @Override
+  public void onDialogNegativeClick(DialogFragment dialog) {
+    // User touched the dialog's negative button
+    // 何もしない
+  }
   // 金額編集
   private void editAmount(){
     Intent intent = new Intent(this, InputAmountActivity.class);
@@ -290,6 +312,7 @@ public class SpendActivity extends AppCompatActivity {
   private void dellSpend(){
     SpendLogDao dao = new SpendLogDao(this);
     dao.dellLog(inputSpend);
+
   }
 
   // NumPad選択イベント処理
