@@ -12,7 +12,7 @@
 
         <activity
             android:name=".Summary.SummaryActivity"
-            android:label="@string/app_name"
+            android:label="@string/activity_label_summary"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -31,19 +31,19 @@
         </activity>
         <activity
             android:name=".Spend.SpendActivity"
-            android:label="@string/spend_name">
+            android:label="@string/activity_label_spend">
         </activity>
         <activity
             android:name=".InputAmount.InputAmountActivity"
-            android:label="@string/input_amount_name">
+            android:label="@string/activity_label_amount">
         </activity>
         <activity
             android:name=".InputMemo.InputMemoActivity"
-            android:label="@string/input_memo_name">
+            android:label="@string/activity_label_memo">
         </activity>
         <activity
             android:name=".Category.SelectCategoryActivity"
-            android:label="@string/select_category_name">
+            android:label="@string/activity_label_category">
         </activity>
         <activity
             android:name=".InputPaymentDate.InputPaymentDateActivity"
@@ -51,7 +51,7 @@
         </activity>
         <activity
             android:name=".History.HistoryActivity"
-            android:label="@string/menu_nav_history">
+            android:label="@string/activity_label_history">
         </activity>
 
         <service android:name=".InputMethodService.NumPad"
