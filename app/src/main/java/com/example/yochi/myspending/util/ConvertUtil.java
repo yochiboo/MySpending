@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * ConvertUtil
  * Created by yochi on 2017/07/06.
  */
-
 public class ConvertUtil {
 
   /**
