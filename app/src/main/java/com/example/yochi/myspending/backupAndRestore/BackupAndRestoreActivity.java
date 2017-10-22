@@ -1,8 +1,5 @@
-package com.example.yochi.myspending.BackupAndRestore;
+package com.example.yochi.myspending.backupAndRestore;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,17 +7,7 @@ import android.os.Environment;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.yochi.myspending.R;
 import com.example.yochi.myspending.util.MySQLiteOpenHelper;

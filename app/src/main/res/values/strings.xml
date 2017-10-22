@@ -19,6 +19,7 @@
     <string name="activity_label_category">カテゴリ</string>
     <string name="activity_label_payment_date">日付</string>
     <string name="activity_label_history">履歴</string>
+    <string name="activity_label_backupAndRestore">バックアップ／リストア</string>
 
     <string name="menu_nav_home">ホーム</string>
     <string name="menu_nav_view">表示</string>

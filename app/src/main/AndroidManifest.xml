@@ -27,7 +27,7 @@
 
         <activity
             android:name="AddActivity"
-            android:label="@string/spend_name">
+            android:label="@string/activity_label_spend">
         </activity>
         <activity
             android:name=".spend.SpendActivity"
@@ -47,11 +47,15 @@
         </activity>
         <activity
             android:name=".inputPaymentDate.InputPaymentDateActivity"
-            android:label="@string/input_payment_date_name">
+            android:label="@string/activity_label_payment_date">
         </activity>
         <activity
             android:name=".history.HistoryActivity"
             android:label="@string/activity_label_history">
+        </activity>
+        <activity
+            android:name=".backupAndRestore.BackupAndRestoreActivity"
+            android:label="@string/activity_label_backupAndRestore">
         </activity>
 
         <service android:name=".inputMethodService.NumPad"
