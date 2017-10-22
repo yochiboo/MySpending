@@ -253,11 +253,11 @@ public class SummaryActivity extends AppCompatActivity {
     ArrayList<Summary> summaries = new ArrayList<Summary>();
     Date today = new Date();
 
-    Summary thisMonthSummries = queryMonthSummaries(target);
+    Summary thisMonthSummries = queryMonthSummary(target);
     summaries.add(thisMonthSummries);
 
-    Summary todaySummaries = queryDaySummaries(target);
-    summaries.add(todaySummaries);
+    Summary todaySummary = queryDaySummary(target);
+    summaries.add(todaySummary);
 
     return summaries;
   }
@@ -266,9 +266,9 @@ public class SummaryActivity extends AppCompatActivity {
    * 指定月のサマリー検索
    * @return サマリー検索結果
    **/
-  private Summary queryMonthSummaries(Date target){
+  private Summary queryMonthSummary(Date target){
     Summary summary = ConvertUtil.spendPerCategoryList2Summary(mDao.getMonthSpendByCategory(target));
-    summary.setSummaryDate(target);
+    summary.setSummaryDate(new Timestamp(target.getTime()));
     return summary;
   }
 
@@ -276,9 +276,9 @@ public class SummaryActivity extends AppCompatActivity {
    * 指定日のサマリー検索
    * @return サマリー検索結果
    **/
-  private ArrayList<Summary> queryDaySummaries(Date target){
+  private Summary queryDaySummary(Date target){
     Summary summary = ConvertUtil.spendPerCategoryList2Summary(mDao.getDaySpendByCategory(target));
-    summary.setSummaryDate(target);
+    summary.setSummaryDate(new Timestamp(target.getTime()));
     return summary;
   }
   private ArrayList<Summary> querySummaries(Date current){

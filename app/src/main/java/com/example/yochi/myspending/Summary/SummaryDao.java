@@ -148,9 +148,16 @@ public class SummaryDao {
    * 指定月のカテゴリ毎支出
    */
   public List<SpendPerCategory> getMonthSpendByCategory(Date target){
-    Calendar today = Calendar.getInstance();
-    ArrayList<Timestamp> thisMonthFromTo = MyDateUtil.getMonthTimestamp(new Timestamp(today.getTimeInMillis()));
+    ArrayList<Timestamp> thisMonthFromTo = MyDateUtil.getMonthTimestamp(new Timestamp(target.getTime()));
     return getPeriodNumByCategory(thisMonthFromTo.get(0), thisMonthFromTo.get(1));
+  }
+
+  /**
+   * 指定日のカテゴリ毎支出
+   */
+  public List<SpendPerCategory> getDaySpendByCategory(Date target){
+    ArrayList<Timestamp> todayFromTo = MyDateUtil.getDayTimestamp(new Timestamp(target.getTime()));
+    return getPeriodNumByCategory(todayFromTo.get(0), todayFromTo.get(1));
   }
 
   // 直近ログの削除
