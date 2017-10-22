@@ -10,10 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.yochi.myspending.Category.Category;
-import com.example.yochi.myspending.Category.SelectCategoryActivity;
-import com.example.yochi.myspending.Spend.SpendLog;
-import com.example.yochi.myspending.Spend.SpendLogDao;
+import com.example.yochi.myspending.category.Category;
+import com.example.yochi.myspending.category.SelectCategoryActivity;
+import com.example.yochi.myspending.spend.SpendLog;
+import com.example.yochi.myspending.spend.SpendLogDao;
 
 public class AddActivity extends AppCompatActivity {
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.yochi.myspending.Summary.SummaryActivity">
+    tools:context="com.example.yochi.myspending.summary.SummaryActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

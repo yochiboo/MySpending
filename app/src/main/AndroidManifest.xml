@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".Summary.SummaryActivity"
+            android:name=".summary.SummaryActivity"
             android:label="@string/activity_label_summary"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -30,31 +30,31 @@
             android:label="@string/spend_name">
         </activity>
         <activity
-            android:name=".Spend.SpendActivity"
+            android:name=".spend.SpendActivity"
             android:label="@string/activity_label_spend">
         </activity>
         <activity
-            android:name=".InputAmount.InputAmountActivity"
+            android:name=".inputAmount.InputAmountActivity"
             android:label="@string/activity_label_amount">
         </activity>
         <activity
-            android:name=".InputMemo.InputMemoActivity"
+            android:name=".inputMemo.InputMemoActivity"
             android:label="@string/activity_label_memo">
         </activity>
         <activity
-            android:name=".Category.SelectCategoryActivity"
+            android:name=".category.SelectCategoryActivity"
             android:label="@string/activity_label_category">
         </activity>
         <activity
-            android:name=".InputPaymentDate.InputPaymentDateActivity"
+            android:name=".inputPaymentDate.InputPaymentDateActivity"
             android:label="@string/input_payment_date_name">
         </activity>
         <activity
-            android:name=".History.HistoryActivity"
+            android:name=".history.HistoryActivity"
             android:label="@string/activity_label_history">
         </activity>
 
-        <service android:name=".InputMethodService.NumPad"
+        <service android:name=".inputMethodService.NumPad"
                  android:label="@string/num_pad"
                  android:permission="android.permission.BIND_INPUT_METHOD"
                 >

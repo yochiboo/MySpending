@@ -4,7 +4,7 @@
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    tools:context="com.example.yochi.myspending.InputMemo.InputMemoActivity">
+                    tools:context="com.example.yochi.myspending.inputMemo.InputMemoActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

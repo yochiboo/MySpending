@@ -12,8 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.example.yochi.myspending.Spend.SpendActivity;
-import com.example.yochi.myspending.Summary.SummaryDao;
+import com.example.yochi.myspending.spend.SpendActivity;
+import com.example.yochi.myspending.summary.SummaryDao;
 
 public class MainActivity extends AppCompatActivity {
 

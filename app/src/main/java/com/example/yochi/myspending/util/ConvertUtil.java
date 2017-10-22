@@ -1,15 +1,9 @@
 package com.example.yochi.myspending.util;
 
-import android.content.res.AssetManager;
+import com.example.yochi.myspending.summary.SpendPerCategory;
+import com.example.yochi.myspending.summary.Summary;
+import com.example.yochi.myspending.summary.SummaryItem;
 
-import com.example.yochi.myspending.Summary.SpendPerCategory;
-import com.example.yochi.myspending.Summary.Summary;
-import com.example.yochi.myspending.Summary.SummaryItem;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
