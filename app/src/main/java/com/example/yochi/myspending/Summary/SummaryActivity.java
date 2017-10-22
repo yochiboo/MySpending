@@ -41,7 +41,7 @@ public class SummaryActivity extends AppCompatActivity {
 
   private final static int VIEW_TERM_DAY = 0;
   private final static int VIEW_TERM_MONTH = 1;
-  
+
   SummaryDao mDao = new SummaryDao(this);
   Date mCurrentDate = new Date();
   int mViewTerm = VIEW_TERM_DAY;
@@ -155,13 +155,13 @@ public class SummaryActivity extends AppCompatActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
     //noinspection SimplifiableIfStatement
     switch (item.getItemId()){
-    // 日付の選択
-    case R.id.action_cal:
-      onSelectDate();
-      return true;
-    // 表示期間の変更
-    case R.id.action_term:
-      return true;
+      // 日付の選択
+      case R.id.action_cal:
+        onSelectDate();
+        return true;
+      // 表示期間の変更
+      case R.id.action_term:
+        return true;
     }
 
     return super.onOptionsItemSelected(item);
@@ -223,7 +223,7 @@ public class SummaryActivity extends AppCompatActivity {
   @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
   private void showTodaySpend(Date current){
 
-    ArrayList<Summary> summaries = queryThisMonthAndTodaySummaries();
+    ArrayList<Summary> summaries = queryMonthAndDaySummaries(current);
 
     //ページャー
     ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -245,25 +245,42 @@ public class SummaryActivity extends AppCompatActivity {
   }
 
   /**
-   * 今月と今日のサマリー検索
+   * 指定日の月単位日単位サマリー検索
    * @return サマリー検索結果
    **/
-  private ArrayList<Summary> queryThisMonthAndTodaySummaries(){
+  private ArrayList<Summary> queryMonthAndDaySummaries(Date target){
 
     ArrayList<Summary> summaries = new ArrayList<Summary>();
-    Timestamp today = new Timestamp((new Date()).getTime());
+    Date today = new Date();
 
-    Summary thisMonthSummries = ConvertUtil.spendPerCategoryList2Summary(mDao.getThisMonthSpendByCategory());
-    thisMonthSummries.setSummaryDate(today);
+    Summary thisMonthSummries = queryMonthSummaries(target);
     summaries.add(thisMonthSummries);
 
-    Summary todaySummaries = ConvertUtil.spendPerCategoryList2Summary(mDao.getTodaySpendByCategory());
-    todaySummaries.setSummaryDate(today);
+    Summary todaySummaries = queryDaySummaries(target);
     summaries.add(todaySummaries);
 
     return summaries;
   }
 
+  /**
+   * 指定月のサマリー検索
+   * @return サマリー検索結果
+   **/
+  private Summary queryMonthSummaries(Date target){
+    Summary summary = ConvertUtil.spendPerCategoryList2Summary(mDao.getMonthSpendByCategory(target));
+    summary.setSummaryDate(target);
+    return summary;
+  }
+
+  /**
+   * 指定日のサマリー検索
+   * @return サマリー検索結果
+   **/
+  private ArrayList<Summary> queryDaySummaries(Date target){
+    Summary summary = ConvertUtil.spendPerCategoryList2Summary(mDao.getDaySpendByCategory(target));
+    summary.setSummaryDate(target);
+    return summary;
+  }
   private ArrayList<Summary> querySummaries(Date current){
 
     Timestamp currentTs = new Timestamp(current.getTime());
