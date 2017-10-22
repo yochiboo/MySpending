@@ -16,7 +16,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -52,7 +51,7 @@
         </activity>
         <activity
             android:name=".History.HistoryActivity"
-            android:label="@string/input_payment_date_name">
+            android:label="@string/menu_nav_history">
         </activity>
 
         <service android:name=".InputMethodService.NumPad"

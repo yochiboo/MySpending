@@ -29,4 +29,8 @@
     <string name="menu_nav_about">このアプリについて</string>
 
     <string name="money_decimal_point">0</string>
+
+    <string name="msg_confirm_delete">削除してもよろしいですか？</string>
+    <string name="msg_confirm_delete_ok">OK</string>
+    <string name="msg_confirm_delete_cancel">Cancel</string>
 </resources>

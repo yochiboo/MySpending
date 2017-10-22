@@ -11,6 +11,7 @@ import com.example.yochi.myspending.util.MySqlUtil;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -138,6 +139,15 @@ public class SummaryDao {
    * 今月のカテゴリ毎支出
    */
   public List<SpendPerCategory> getThisMonthSpendByCategory(){
+    Calendar today = Calendar.getInstance();
+    ArrayList<Timestamp> thisMonthFromTo = MyDateUtil.getMonthTimestamp(new Timestamp(today.getTimeInMillis()));
+    return getPeriodNumByCategory(thisMonthFromTo.get(0), thisMonthFromTo.get(1));
+  }
+
+  /**
+   * 指定月のカテゴリ毎支出
+   */
+  public List<SpendPerCategory> getMonthSpendByCategory(Date target){
     Calendar today = Calendar.getInstance();
     ArrayList<Timestamp> thisMonthFromTo = MyDateUtil.getMonthTimestamp(new Timestamp(today.getTimeInMillis()));
     return getPeriodNumByCategory(thisMonthFromTo.get(0), thisMonthFromTo.get(1));
