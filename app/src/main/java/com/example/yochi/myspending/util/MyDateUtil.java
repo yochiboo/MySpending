@@ -107,7 +107,8 @@ public class MyDateUtil {
 
   // 基準日からの差分日数
   public static int getNumberOfDays(Date target){
-    long num = target.getTime() / DAY_PER_MILLS;
+    long offset = Calendar.getInstance().getTimeZone().getRawOffset();
+    long num = (target.getTime()-offset) / DAY_PER_MILLS;
     if(target.getTime() % DAY_PER_MILLS > 0){
       num++;
     }
