@@ -238,10 +238,12 @@ public class SummaryActivity extends AppCompatActivity {
     //viewPager.setCurrentItem(MyDateUtil.getDayOfMonth(new Timestamp(current.getTime()))-1);
 
     // ツールバーにカレント年月を表示
+    /*
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     SimpleDateFormat df = new SimpleDateFormat("yyyy/MM");
     toolbar.setTitle(df.format(current));
     toolbar.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+    */
   }
 
   /**
