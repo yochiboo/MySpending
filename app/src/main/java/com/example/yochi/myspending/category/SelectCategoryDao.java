@@ -31,7 +31,7 @@ public class SelectCategoryDao {
 
     ArrayList<Category> result = new ArrayList<Category>();
 
-    String sql = getSql("sql/selectCategory/selectAllCategory");
+    String sql = getSql("sql/category/selectAllCategory");
     Cursor c = openDb().rawQuery(sql, null);
     while(c.moveToNext()){
       Category item = CategoryDto.parseCategory(c);
@@ -45,7 +45,7 @@ public class SelectCategoryDao {
 
   // 指定カテゴリー取得
   public Category getCategory(int id){
-    String sql = getSql("sql/selectCategory/getCategory");
+    String sql = getSql("sql/category/getCategory");
     Cursor c = openDb().rawQuery(sql, null);
     c.moveToNext();
     Category item = CategoryDto.parseCategory(c);
@@ -56,7 +56,7 @@ public class SelectCategoryDao {
 
   // カテゴリー追加
   public void insertCategory(Category c){
-    String format = getSql("sql/selectCategory/insertCategory");
+    String format = getSql("sql/category/insertCategory");
     String sql = String.format(format, c.getCode(), c.getName(), c.getClassCode(), c.getParentCode(), c.getViewOrder(), c.getIconSrc());
     openDb().execSQL(sql);
     closeDb();
@@ -64,7 +64,7 @@ public class SelectCategoryDao {
 
   // カテゴリー編集
   public void updateCategory(Category c){
-    String format = getSql("sql/selectCategory/updateCategory");
+    String format = getSql("sql/category/updateCategory");
     String sql = String.format(format, c.getName(), c.getClassCode(), c.getParentCode(), c.getViewOrder(), c.getIconSrc(), c.getCode());
     openDb().execSQL(sql);
     closeDb();
@@ -72,7 +72,7 @@ public class SelectCategoryDao {
 
   // カテゴリー削除
   public void deleteCategory(int code){
-    String format = getSql("sql/selectCategory/deleteCategory");
+    String format = getSql("sql/category/deleteCategory");
     String sql = String.format(format, code);
     openDb().execSQL(sql);
     closeDb();
@@ -86,6 +86,25 @@ public class SelectCategoryDao {
     String sqlFormat = "insert into log (payment_date, amount, memo, class_code, category_code, wallet_code, shop_code, create_date, update_date) values (%d, %d, '%s', %d, %d, %d, %d, %d, %d)";
   }
 
+  /**
+   * 親カテゴリ一覧検索
+   * @return 親カテゴリ一覧
+   */
+  public ArrayList<Category> selectAllParents(){
+
+    ArrayList<Category> result = new ArrayList<Category>();
+
+    String sql = getSql("sql/category/selectAllParents");
+    Cursor c = openDb().rawQuery(sql, null);
+    while(c.moveToNext()){
+      Category item = CategoryDto.parseCategory(c);
+      result.add(item);
+    }
+    c.close();
+    closeDb();
+
+    return result;
+  }
 
   private SQLiteDatabase openDb(){
     if(mydb == null){
