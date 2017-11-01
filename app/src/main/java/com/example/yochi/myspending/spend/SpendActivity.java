@@ -229,14 +229,14 @@ public class SpendActivity extends AppCompatActivity
         finish();
         return true;
       case R.id.action_delete:
-        OnConfirmDelteSpend();
+        OnConfirmDeleteSpend();
         return true;
     }
     return super.onOptionsItemSelected(item);
   }
 
   // データ削除の確認
-  private void OnConfirmDelteSpend(){
+  private void OnConfirmDeleteSpend(){
     MyConfirmDialogFragment dialogFragment = new MyConfirmDialogFragment()
       .setMessage(getString(R.string.msg_confirm_delete))
       .setPositive(getString(R.string.msg_confirm_delete_ok))

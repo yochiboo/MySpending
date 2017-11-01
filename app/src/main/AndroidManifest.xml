@@ -46,6 +46,10 @@
             android:label="@string/activity_label_category">
         </activity>
         <activity
+            android:name=".category.EditCategoryActivity"
+            android:label="@string/activity_label_category">
+        </activity>
+        <activity
             android:name=".inputPaymentDate.InputPaymentDateActivity"
             android:label="@string/activity_label_payment_date">
         </activity>

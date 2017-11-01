@@ -58,17 +58,6 @@ public class EditCategoryActivity extends AppCompatActivity {
       getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    // カテゴリ名
-
-    // 親カテゴリスピナーイベント設定
-    Spinner spinner = (Spinner)findViewById(R.id.spinnerParent);
-    spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-      @Override
-      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        // 選択した親カテゴリをメンバへ保存
-      }
-    });
-
     // フローティング保存ボタンイベント設定
     FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
     fab.setOnClickListener(new View.OnClickListener() {
@@ -207,6 +196,9 @@ public class EditCategoryActivity extends AppCompatActivity {
   private void onDeleteCategory(){
     SelectCategoryDao dao = new SelectCategoryDao(this);
     dao.deleteCategory(mCategory.getCode());
+
+    // 削除したカテゴリの使用箇所を全てカテゴリなしに更新する
+
     finish();
   }
 
@@ -239,7 +231,9 @@ public class EditCategoryActivity extends AppCompatActivity {
         }
         pos++;
       }
-      spinner.setSelection(pos);
+      if(parents.size() <= pos){
+        spinner.setSelection(pos);
+      }
     }
   }
 }

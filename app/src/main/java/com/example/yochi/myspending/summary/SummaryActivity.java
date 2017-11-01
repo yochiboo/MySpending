@@ -21,6 +21,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 
+import com.example.yochi.myspending.category.EditCategoryActivity;
+import com.example.yochi.myspending.category.SelectCategoryActivity;
 import com.example.yochi.myspending.history.HistoryActivity;
 import com.example.yochi.myspending.R;
 import com.example.yochi.myspending.spend.SpendActivity;
@@ -65,6 +67,10 @@ public class SummaryActivity extends AppCompatActivity {
         switch(item.getItemId()){
           case R.id.menu_nav_history:
             onMenuHistory();
+            break;
+          // カテゴリ設定
+          case R.id.menu_nav_category:
+            onMenuCategorySetting();
             break;
           default:
             showAddActivity();
@@ -166,6 +172,13 @@ public class SummaryActivity extends AppCompatActivity {
   private void onMenuHistory(){
     Date today = new Date();
     showHistoryActivity(new Timestamp(today.getTime()));
+  }
+
+  // カテゴリ設定イベント
+  private void onMenuCategorySetting(){
+    Intent intent = new Intent(this, SelectCategoryActivity.class);
+    intent.putExtra("param", SelectCategoryActivity.PARAM_EDIT);
+    startActivity(intent);
   }
 
   private void showAddActivity(){
