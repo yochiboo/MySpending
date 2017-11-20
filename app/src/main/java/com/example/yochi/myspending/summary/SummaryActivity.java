@@ -83,8 +83,8 @@ public class SummaryActivity extends AppCompatActivity {
       }
     });
 
+/*
     // ナビゲーションアイコンの設定、クリック処理
-    /*
     toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
     toolbar.setNavigationOnClickListener(new View.OnClickListener() {
       @Override
@@ -94,15 +94,17 @@ public class SummaryActivity extends AppCompatActivity {
     });
 */
 
+    // ＋ボタンイベント
     FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
     fab.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
+        // 
         showAddActivity();
       }
     });
 
-    /*
+/*
     //サマリが選択された時のイベントを追加
     ListView listView = (ListView) findViewById(R.id.summaryList);
     listView.setOnItemClickListener(new ListView.OnItemClickListener() {
@@ -113,17 +115,6 @@ public class SummaryActivity extends AppCompatActivity {
     });
 */
 
-    //履歴ボタン
-    Button button = (Button)findViewById(R.id.history_button);
-    button.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        SummaryFragmentPagerAdapter pager = (SummaryFragmentPagerAdapter)viewPager.getAdapter();
-        Timestamp ts = pager.getSummaries().get(viewPager.getCurrentItem()).getSummaryDate();
-        showHistoryActivity(MyDateUtil.cutTime(ts));
-      }
-    });
   }
 
   @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
