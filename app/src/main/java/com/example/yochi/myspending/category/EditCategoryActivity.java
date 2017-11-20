@@ -53,9 +53,10 @@ public class EditCategoryActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_category_edit);
 
-    // 戻るボタン設定
-    if(getActionBar() != null){
-      getActionBar().setDisplayHomeAsUpEnabled(true);
+    // 戻るボタン
+    android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+    if(actionBar != null){
+      actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     // フローティング保存ボタンイベント設定
