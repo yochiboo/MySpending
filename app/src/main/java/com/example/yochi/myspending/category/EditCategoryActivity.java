@@ -30,6 +30,10 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * カテゴリ編集画面
+ *
+ */
 public class EditCategoryActivity extends AppCompatActivity {
 
   public static final int PARAM_NEW = 0;
