@@ -53,6 +53,8 @@ public class SummaryActivity extends AppCompatActivity {
     setSupportActionBar(toolbar);
     //toolbar.inflateMenu(R.menu.menu_main);
     //mDao.dropSpendLog();
+
+    // ナビゲーションドローワー設定
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
       this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -121,7 +123,7 @@ public class SummaryActivity extends AppCompatActivity {
   @Override
   protected void onResume(){
     super.onResume();
-    showTodaySpend(mCurrentDate);
+    showSummary(mCurrentDate);
 
     // 戻るボタン非表示
     ActionBar bar =getActionBar();
@@ -160,7 +162,9 @@ public class SummaryActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
 
+  // 履歴メニューイベント
   private void onMenuHistory(){
+    // 履歴画面へ遷移
     Date today = new Date();
     showHistoryActivity(new Timestamp(today.getTime()));
   }
@@ -200,7 +204,7 @@ public class SummaryActivity extends AppCompatActivity {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
           Calendar cal = Calendar.getInstance();
           cal.set(year, monthOfYear, dayOfMonth, 0, 0);
-          showTodaySpend(cal.getTime());
+          showSummary(cal.getTime());
         }
       },
       year, month, day);
@@ -221,7 +225,7 @@ public class SummaryActivity extends AppCompatActivity {
   }
 
   @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
-  private void showTodaySpend(Date current){
+  private void showSummary(Date current){
 
     ArrayList<Summary> summaries = queryMonthAndDaySummaries(current);
 
@@ -283,6 +287,12 @@ public class SummaryActivity extends AppCompatActivity {
     summary.setSummaryDate(new Timestamp(target.getTime()));
     return summary;
   }
+
+  /**
+   * （廃止メソッド）サマリー検索
+   * @param 検索日
+   * @return サマリー検索結果
+   **/
   private ArrayList<Summary> querySummaries(Date current){
 
     Timestamp currentTs = new Timestamp(current.getTime());
