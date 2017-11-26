@@ -10,5 +10,5 @@ create table quick (
     icon_src text
 );
 <!-- 初期データ -->
-<!-- insert into quick (amount, memo, class_code, category_code, wallet_code, shop_code, view_order, icon_src) values
+<!-- insert into category (amount, memo, class_code, category_code, wallet_code, shop_code, view_order, icon_src) values
 <!--     (120, 'ドリンク', 0, -1, 0, '');

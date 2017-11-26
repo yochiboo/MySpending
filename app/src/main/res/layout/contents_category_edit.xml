@@ -22,7 +22,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"/>
+        android:text="Name"
+        android:textSize="14sp"
+        />
 
     <TextView
         android:id="@+id/parent"
@@ -37,6 +39,8 @@
     <Spinner
         android:id="@+id/spinnerParent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        />
 
 </LinearLayout>
