@@ -7,13 +7,8 @@ package com.example.yochi.myspending.config;
 public class ConfigDefine {
 
   /** テーマ */
-  public static final ID_THEMA = 1;
+  public static final int ID_THEMA = 1;
 
-  /** テーマ */
-  public static final ID_THEMA = 1;
-
-  /** テーマ */
-  public static final ID_THEMA = 1;
 
   private ConfigDefine(){}
 

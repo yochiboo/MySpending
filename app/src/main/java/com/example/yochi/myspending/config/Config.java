@@ -1,13 +1,16 @@
 package com.example.yochi.myspending.config;
 
+import com.example.yochi.myspending.util.MyContext;
+
+import java.util.HashMap;
+
 /**
  * Created by yochi on 2017/07/06.
  */
-
 public class Config {
 
   /** インスタンス */
-  Static Config instance = null;
+  private static Config instance = null;
 
   /** テーマ */
   String thema = "default";
@@ -15,19 +18,19 @@ public class Config {
   String locale = "jp";
   // クイック入力の編集
 
-  HashMap<int, String> conf = new HashMap<int, String>();
+  private static HashMap<Integer, String> conf = new HashMap<Integer, String>();
 
   static public Config getInstance() {
     if(instance == null){
       // コンフィグの検索
-      dao = new ConfigDao();
-      conf = ConfigDao.queryAllConfig();
+      ConfigDao dao = new ConfigDao(MyContext.getContext());
+      conf = dao.queryAllConfig();
     }
     return instance;
   }
 
   public String getConfig(int id){
-    String val = (Stirng)conf.get(id);
+    String val = (String)conf.get(id);
     if(val == null){
       return "";
     }

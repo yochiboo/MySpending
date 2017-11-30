@@ -1,4 +1,4 @@
-package com.example.yochi.myspending.history;
+package com.example.yochi.myspending.config;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -9,6 +9,7 @@ import com.example.yochi.myspending.util.MySqlUtil;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * コンフィグテーブルアクセス
@@ -30,8 +31,8 @@ public class ConfigDao {
   /**
    * 全コンフィグ検索
    */
-  public HashMap<int, String> queryAllConfig(){
-    HashMap<int, String> result = new HashMap<int, String>();
+  public HashMap<Integer, String> queryAllConfig(){
+    HashMap<Integer, String> result = new HashMap<Integer, String>();
     String sql = MySqlUtil.getSql(mContext.getAssets(), "sql/config/queryAllConfig");
     SQLiteDatabase myDb = mHelper.getReadableDatabase();
     Cursor c = myDb.rawQuery(sql, null);
@@ -76,7 +77,6 @@ public class ConfigDao {
     String sql = String.format(sqlFormat, id, value);
     myDb.execSQL(sql, null);
     myDb.close();
-    return result;
   }
 
   /**
@@ -86,18 +86,19 @@ public class ConfigDao {
    */
   public boolean isExist(SQLiteDatabase db, int id){
 
-    String sqlFormat = MySqlUtil.getSql(mContext.getAssets(), "sql/config/isExist";
-    String sql = String.format(sqlFormat, id, value);
+    String sqlFormat = MySqlUtil.getSql(mContext.getAssets(), "sql/config/isExist");
+    String sql = String.format(sqlFormat, id);
 
     Cursor c = db.rawQuery(sql, null);
+    int exist = 0;
     while(c.moveToNext()){
-      int exist = c.getInt(c.getColumnIndex("exist"));
+      exist = c.getInt(c.getColumnIndex("exist"));
     }
     c.close();
 
     if(exist > 0){
-      retun true;
+      return true;
     }
-    return falise;
+    return false;
   }
 }
