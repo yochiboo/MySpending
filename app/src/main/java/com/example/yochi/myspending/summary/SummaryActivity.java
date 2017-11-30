@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -64,7 +65,7 @@ public class SummaryActivity extends AppCompatActivity {
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
       @Override
-      public boolean onNavigationItemSelected(MenuItem item) {
+      public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // ナビゲーションアイコンクリック時の処理
         switch(item.getItemId()){
           case R.id.menu_nav_history:
@@ -257,7 +258,6 @@ public class SummaryActivity extends AppCompatActivity {
   private ArrayList<Summary> queryMonthAndDaySummaries(Date target){
 
     ArrayList<Summary> summaries = new ArrayList<Summary>();
-    Date today = new Date();
 
     Summary thisMonthSummries = queryMonthSummary(target);
     summaries.add(thisMonthSummries);
@@ -290,7 +290,7 @@ public class SummaryActivity extends AppCompatActivity {
 
   /**
    * （廃止メソッド）サマリー検索
-   * @param 検索日
+   * @param current 検索日
    * @return サマリー検索結果
    **/
   private ArrayList<Summary> querySummaries(Date current){

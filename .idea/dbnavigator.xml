@@ -28,6 +28,9 @@
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
   </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/app/src/main/assets/sql/createTable/quick.sql" connection-id="virtual-sqlite-connection" current-schema="" />
+  </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
     <execution-history>
