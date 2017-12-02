@@ -32,14 +32,23 @@ public class MyContext {
   }
 
   public static Context getContext() {
+    if (instance == null) {
+      throw new RuntimeException("MyContext should be initialized!");
+    }
     return instance.getApplicationContext();
   }
 
   public static String getString(int resId) {
+    if (instance == null) {
+      throw new RuntimeException("MyContext should be initialized!");
+    }
     return instance.getApplicationContext().getString(resId);
   }
 
   public static AssetManager getAssets() {
+    if (instance == null) {
+      throw new RuntimeException("MyContext should be initialized!");
+    }
     return instance.getApplicationContext().getAssets();
   }
 
