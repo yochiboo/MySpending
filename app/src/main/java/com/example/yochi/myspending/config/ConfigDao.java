@@ -33,7 +33,7 @@ public class ConfigDao {
    */
   public HashMap<Integer, String> queryAllConfig(){
     HashMap<Integer, String> result = new HashMap<Integer, String>();
-    String sql = MySqlUtil.getSql(mContext.getAssets(), "sql/config/queryAllConfig");
+    String sql = MySqlUtil.getSql("sql/config/queryAllConfig");
     SQLiteDatabase myDb = mHelper.getReadableDatabase();
     Cursor c = myDb.rawQuery(sql, null);
     while(c.moveToNext()){
@@ -50,7 +50,7 @@ public class ConfigDao {
    * コンフィグ初期化
    */
   public void initializeConfig(){
-    String sql = MySqlUtil.getSql(mContext.getAssets(), "sql/config/initializeConfig");
+    String sql = MySqlUtil.getSql("sql/config/initializeConfig");
     SQLiteDatabase myDb = mHelper.getWritableDatabase();
     myDb.execSQL(sql, null);
     myDb.close();
@@ -69,10 +69,10 @@ public class ConfigDao {
     String sqlFormat;
     if(isExist(myDb, id)){
       // コンフィグあり→更新SQL
-      sqlFormat = MySqlUtil.getSql(mContext.getAssets(), "sql/config/updateConfig");
+      sqlFormat = MySqlUtil.getSql("sql/config/updateConfig");
     }else{
       // コンフィグあり→新規SQL
-      sqlFormat = MySqlUtil.getSql(mContext.getAssets(), "sql/config/insertConfig");
+      sqlFormat = MySqlUtil.getSql("sql/config/insertConfig");
     }
     String sql = String.format(sqlFormat, id, value);
     myDb.execSQL(sql, null);
@@ -86,7 +86,7 @@ public class ConfigDao {
    */
   public boolean isExist(SQLiteDatabase db, int id){
 
-    String sqlFormat = MySqlUtil.getSql(mContext.getAssets(), "sql/config/isExist");
+    String sqlFormat = MySqlUtil.getSql("sql/config/isExist");
     String sql = String.format(sqlFormat, id);
 
     Cursor c = db.rawQuery(sql, null);

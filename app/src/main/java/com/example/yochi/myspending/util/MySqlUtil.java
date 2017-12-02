@@ -27,6 +27,19 @@ public class MySqlUtil {
   }
 
   /**
+   * 引数に指定したassetsフォルダ内の指定sqlの内容を取得する
+   * @throws IOException
+   */
+  public static String getSql(String sqlName) {
+    try {
+      return readFile(MyContext.getAssets().open(sqlName + ".sql"));
+    } catch (IOException e) {
+      e.printStackTrace();
+      return "";
+    }
+  }
+
+  /**
    * ファイルから文字列を読み込みます。
    * @param is
    * @return ファイルの文字列
