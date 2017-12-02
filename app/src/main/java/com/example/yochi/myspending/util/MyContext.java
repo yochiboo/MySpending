@@ -2,6 +2,7 @@ package com.example.yochi.myspending.util;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.AssetManager;
 
 /**
  * Created by yochi on 2017/11/30.
