@@ -39,6 +39,10 @@ public class MyContext {
     return instance.getApplicationContext().getString(resId);
   }
 
+  public static AssetManager getAssets() {
+    return instance.getApplicationContext().getAssets();
+  }
+
   public Context getApplicationContext() {
     return applicationContext;
   }
