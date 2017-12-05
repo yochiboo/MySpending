@@ -94,6 +94,49 @@ public class SummaryFragment extends Fragment {
     listView.setAdapter(new SummaryItemAdapter(view.getContext(), mSummary.getSummaryItems()));
   }
 
+  // onViewCreatedの差し替え中
+  public void redraw(View view, Bundle savedInstanceState) {
+
+    if(mSummary == null){
+      return;
+    } else if(mSummary.getSummaryDate() == null){
+      return;
+    }
+
+    Locale locale = new Locale("ja", "JP", "JP");
+    SimpleDateFormat df;
+
+    boolean isToday =MyDateUtil.isToday(mSummary.getSummaryDate());
+    int todayColor = Color.BLUE;
+
+    // サマリー期間
+    switch(mSummary.getMode()){
+    case Summary.MODE_MONTHLY:
+      df = new SimpleDateFormat("yyyy/MM/dd(EEE)", locale);
+      break;
+    case Summary.MODE_MONTHLY:
+    default:
+      df = new SimpleDateFormat("yyyy/MM", locale);
+      break;
+    }
+    TextView textView = (TextView) view.findViewById(R.id.payment_date);
+    textView.setText(df.format(mPaymentDate));
+    if(isToday){
+      // 今日の場合、ハイライト表示する
+      textView.setTextColor(todayColor);
+    }
+    textView.setOnClickListener(mClickListener);
+
+    // 支出額合計
+    textView = (TextView)view.findViewById(R.id.amount);
+    textView.setText(String.format("%,3d" + getString(R.string.amount_unit), mSummary.getAmount()));
+    textView.setOnClickListener(mClickListener);
+
+    // カテゴリ毎支出
+    ListView listView = (ListView) view.findViewById(R.id.categoryAmountList);
+    listView.setAdapter(new SummaryItemAdapter(view.getContext(), mSummary.getSummaryItems()));
+  }
+
   private void showHistoryActivity(Timestamp ts){
     // 遷移先のアクティビティを起動させる
     Intent intent = new Intent(getContext(), HistoryActivity.class);
