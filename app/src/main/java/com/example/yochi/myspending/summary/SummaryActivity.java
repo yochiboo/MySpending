@@ -274,6 +274,7 @@ public class SummaryActivity extends AppCompatActivity {
    **/
   private Summary queryMonthSummary(Date target){
     Summary summary = ConvertUtil.spendPerCategoryList2Summary(mDao.getMonthSpendByCategory(target));
+    summary.setMode(Summary.MODE_MONTHLY);
     summary.setSummaryDate(new Timestamp(target.getTime()));
     return summary;
   }
@@ -284,6 +285,7 @@ public class SummaryActivity extends AppCompatActivity {
    **/
   private Summary queryDaySummary(Date target){
     Summary summary = ConvertUtil.spendPerCategoryList2Summary(mDao.getDaySpendByCategory(target));
+    summary.setMode(Summary.MODE_DAILY);
     summary.setSummaryDate(new Timestamp(target.getTime()));
     return summary;
   }
