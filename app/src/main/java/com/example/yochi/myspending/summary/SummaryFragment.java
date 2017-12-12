@@ -61,35 +61,19 @@ public class SummaryFragment extends Fragment {
     }
 
     Locale locale = new Locale("ja", "JP", "JP");
-    SimpleDateFormat df1 = new SimpleDateFormat("dd", locale);
-    SimpleDateFormat df2 = new SimpleDateFormat("EEEE", locale);
-    SimpleDateFormat df3 = new SimpleDateFormat("MM/yyyy", locale);
 
-    boolean isToday =MyDateUtil.isToday(mSummary.getSummaryDate());
-    int todayColor = Color.BLUE;
+    SimpleDateFormat df;
 
-    TextView textView;
-    textView = (TextView)view.findViewById(R.id.day);
-    textView.setText(df1.format(mSummary.getSummaryDate()));
-    textView.setOnClickListener(mClickListener);
+    df = new SimpleDateFormat("yyyy/MM/dd(EEE)", locale);
 
-    textView = (TextView)view.findViewById(R.id.dayPart);
-    textView.setText(df2.format(mSummary.getSummaryDate()));
-    textView.setTextColor(Color.WHITE);
-    textView.setOnClickListener(mClickListener);
+    // 日付
+    TextView textView = (TextView) view.findViewById(R.id.payment_date);
+    textView.setText(df.format(mSummary.getSummaryDate()));
 
-    textView = (TextView)view.findViewById(R.id.month);
-    textView.setText(df3.format(mSummary.getSummaryDate()));
-    if(isToday){
-      // 今日の場合、ハイライト表示する
-      textView.setTextColor(todayColor);
-    }
-    textView.setOnClickListener(mClickListener);
-
-    textView = (TextView)view.findViewById(R.id.amount);
+    textView = (TextView) view.findViewById(R.id.amount_value);
     textView.setText(String.format("%,3d" + getString(R.string.amount_unit), mSummary.getAmount()));
-    textView.setOnClickListener(mClickListener);
 
+    // サマリリスト
     ListView listView = (ListView) view.findViewById(R.id.categoryAmountList);
     listView.setAdapter(new SummaryItemAdapter(view.getContext(), mSummary.getSummaryItems()));
   }
